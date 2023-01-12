@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-content">
+            <div><b>Lat:</b><span class="lat"></span></div>
+            <div><b>Long:</b><span class="long"></span></div>
+            <div><b>Zoom Level:</b><span class="zoom-level"></span></div>
+            <div><b>Curent Center:</b><span class="current-center"></span></div>
+            <div class="left-content-bottom-wrap">
+                <div class="tambon-detail"></div>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

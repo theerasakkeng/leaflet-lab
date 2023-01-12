@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+}
+.container {
+  display: flex;
+}
+#map {
+  height: 100vh;
+  width: calc(100vw - 300px);
+}
+.left-content {
+  width: 300px;
+  height: 100vh;
+  background-color: azure;
+  padding: 20px;
+}
+.left-content div {
+  margin: 10px 0;
+}
+.left-content-bottom-wrap {
+  border-top: 1px solid rgb(0, 0, 0);
+  width: 100%;
+}
+.tambon-detail {
+  width: 100%;
+}
