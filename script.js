@@ -79,10 +79,11 @@ fetch("./TAMBON.json.geojson")
     });
     layerControl.addOverlay(tambon, "Tambon");
     tambon.on("click", async (e) => {
-      console.log(e);
+      console.log(e)
+      let layerCenter = await e.layer.getCenter();
       await tambon.resetStyle();
       await e.layer.setStyle({ fillColor: "#0000FF" });
-      await map.flyTo([e.latlng.lat, e.latlng.lng], 12);
+      await map.flyTo([layerCenter.lat, layerCenter.lng], 12);
       let center = await map.getCenter();
       document.querySelector(".current-center").innerHTML = `${center.lat},
     ${center.lng}`;
@@ -90,6 +91,6 @@ fetch("./TAMBON.json.geojson")
         ".tambon-detail"
       ).innerHTML = `<span>ตำบล ${e.layer.feature.properties.TAM_NAMT}</span>
       <span>อำเภอ ${e.layer.feature.properties.AMP_NAMT}</span>
-      <span>จังหวัด ${e.layer.feature.properties.PROV_NAMT}</span><div>พื้นที่ ${e.layer.feature.properties.AREA}</div>`;
+      <span>จังหวัด ${e.layer.feature.properties.PROV_NAMT}</span><div>พื้นที่ ${e.layer.feature.properties.PERIMETER} ไร่</div>`;
     });
   });
