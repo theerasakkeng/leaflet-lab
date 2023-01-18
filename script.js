@@ -1,5 +1,6 @@
 //base map
 var streetMap = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  minZoom: 2,
   maxZoom: 19,
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -7,6 +8,7 @@ var streetMap = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 var Esri_WorldImagery = L.tileLayer(
   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
   {
+    minZoom: 2,
     maxZoom: 19,
     attribution:
       "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
@@ -15,6 +17,7 @@ var Esri_WorldImagery = L.tileLayer(
 const miniTileMap = new L.TileLayer(
   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
   {
+    minZoom: 2,
     maxZoom: 19,
     attribution:
       "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
@@ -81,12 +84,17 @@ L.control
   .addTo(map);
 
 //add scale control
-L.control.scale().addTo(map);
+// L.control
+//   .scale({
+//     imperial: false,
+//   })
+//   .addTo(map);
 
 //getdefault center and zoom to html
 const getDefault = () => {
   let zoomlevel = map.getZoom();
   let center = map.getCenter();
+  scaleBar(zoomlevel);
   document.querySelector(".zoom-level").innerHTML = zoomlevel;
   document.querySelector(".current-center").innerHTML = `${center.lat},
     ${center.lng}`;
@@ -96,6 +104,7 @@ getDefault();
 //getzoom when zoomed event
 map.on("zoomend", () => {
   let zoomlevel = map.getZoom();
+  scaleBar(zoomlevel);
   document.querySelector(".zoom-level").innerHTML = zoomlevel;
 });
 

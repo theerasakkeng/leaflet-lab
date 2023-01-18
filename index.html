@@ -20,6 +20,8 @@
     <!-- minimap https://github.com/Norkart/Leaflet-MiniMap -->
     <link rel="stylesheet" href="./plugin/minimap/Control.MiniMap.min.css" />
     <script src="./plugin/minimap/Control.MiniMap.min.js"></script>
+    <!-- scale bar -->
+    <script src="./plugin/scalebar/scalebar.js"></script>
   </head>
 
   <body>
@@ -34,7 +36,13 @@
           <div class="amphoe-detail"></div>
         </div>
       </div>
-      <div id="map"></div>
+      <div id="map">
+        <div class="custom-scale-bar">
+          <div class="scale-value-wrap">
+            <span>1</span><span>:</span><span class="scale-value"></span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="./script.js"></script>
