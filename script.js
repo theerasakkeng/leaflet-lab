@@ -68,6 +68,8 @@ L.control
     position: "topright", //"topleft" || "bottomright" || "bottomleft"
   })
   .addTo(map);
+  
+L.Control.measureControl().addTo(map);
 
 //add scale control
 // L.control
