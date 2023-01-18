@@ -22,6 +22,12 @@
     <script src="./plugin/minimap/Control.MiniMap.min.js"></script>
     <!-- scale bar -->
     <script src="./plugin/scalebar/scalebar.js"></script>
+    <!-- measure https://github.com/makinacorpus/Leaflet.MeasureControl -->
+    <link
+      rel="stylesheet"
+      href="./plugin/measurecontrol/leaflet.measurecontrol.css"
+    />
+    <script src="./plugin/measurecontrol/leaflet.measurecontrol.min.js"></script>
   </head>
 
   <body>
@@ -31,6 +37,11 @@
         <div><b>Long:</b><span class="long"></span></div>
         <div><b>Zoom Level:</b><span class="zoom-level"></span></div>
         <div><b>Curent Center:</b><span class="current-center"></span></div>
+        <div class="button-location-wrap">
+          <div class="button-location" onclick="setCurrentLocation()">
+            Current Location
+          </div>
+        </div>
         <div class="left-content-bottom-wrap">
           <div class="tambon-detail"></div>
           <div class="amphoe-detail"></div>

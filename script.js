@@ -17,33 +17,19 @@ var Esri_WorldImagery = L.tileLayer(
 const miniTileMap = new L.TileLayer(
   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
   {
-    minZoom: 2,
-    maxZoom: 19,
     attribution:
       "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
   }
 );
 
-//get center and set
-const getLocation = () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      mapOption.center = [];
-      mapOption.center.push(position.coords.latitude);
-      mapOption.center.push(position.coords.longitude);
-    });
-  }
-};
-
 // map opption
 const mapOption = {
   zoomControl: false,
   zoom: 10,
-  center: [13.6970314, 100.608406],
+  center: [16.439625, 102.828728],
   doubleClickZoom: false,
   layers: [streetMap],
 };
-getLocation();
 
 //add map
 var map = L.map("map", mapOption);
@@ -63,18 +49,18 @@ var layerControl = L.control
   .addTo(map);
 
 //getlocation and setview
-const setLocation = () => {
+const setCurrentLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
-      map.setView([position.coords.latitude, position.coords.longitude]);
+      map.flyTo([position.coords.latitude, position.coords.longitude]);
       markerEl = new L.marker([
         position.coords.latitude,
         position.coords.longitude,
       ]).addTo(map);
+      console.log(markerEl);
     });
   }
 };
-setLocation();
 
 //add zoom control
 L.control
